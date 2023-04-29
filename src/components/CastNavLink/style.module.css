@@ -1,0 +1,24 @@
+.basket {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+}
+.info {
+  position: absolute;
+  min-width: 15px;
+  height: 15px;
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background: #339933;
+  color: white;
+  right: 2px;
+  bottom: 5px;
+}
+.hide {
+  display: none;
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  width: 100%;
+  border: 2px solid black;
+  padding: 30px;
+  border-radius: 10px;
+}
+.wrapper p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+}

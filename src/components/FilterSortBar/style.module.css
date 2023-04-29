@@ -1,0 +1,53 @@
+.filter_bar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sort p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+}
+.input {
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #000000;
+  font-size: 15px;
+}
+.search_container{
+    outline: none;
+    position: relative;
+}
+.search_container input{
+    border: 1px solid gray;
+
+}
+.search_container span{
+position: absolute;
+right: 4px;
+bottom: 6px;
+background:none ;
+border: none;
+color: gray ;
+
+}
+select{
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #000000;
+  font-size: 15px;
+}
+
+input[type="checkbox" i] {
+  transform: scale(2.2);
+}

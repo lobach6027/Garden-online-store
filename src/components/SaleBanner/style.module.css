@@ -1,0 +1,45 @@
+.sale_container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  background: #a1e2eb;
+  justify-content: space-between;
+  align-items: center;
+}
+.sale_info {
+  width: 50%;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-start;
+}
+.sale_info h2 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 80px;
+  color: #ffffff;
+  margin: 0;
+}
+.sale_info h3 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 63px;
+  color: #ffffff;
+  line-height: normal;
+  margin: 0;
+}
+.sale_info button{
+    background: #FFFFFF; 
+    font-family: "Montserrat";
+    padding: 25px 50px;
+    border:none ;
+    font-size:25px ;
+    border-radius: 5%;
+    font-weight: 700;
+}
+.sale_img img{
+ height: 600px; 
+}

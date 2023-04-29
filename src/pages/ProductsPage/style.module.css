@@ -1,0 +1,15 @@
+.wrapper {
+  padding: 20px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 410px;
+  gap: 30px 30px;
+}
+.products_title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+}
