@@ -7,33 +7,33 @@ export const basketSice = createSlice({
   },
   reducers: {
     addToBasket: (state, action) => {
-      const product = state.find((item) => item.id === action.payload);
+      const product = state.list.find((item) => item.id === action.payload);
       if (product === undefined) {
-        return [...state, { id: action.payload, count: 1 }];
+        state.list = [...state.list, { id: action.payload, count: 1 }];
       } else {
         product.count++;
-        return [...state];
+        state.list = [...state.list];
       }
     },
     deleteBasketItem: (state, action) => {
-      const basket = state.filter((item) => item.id !== action.payload);
-      return [...basket];
+      state.list = state.list.filter((item) => item.id !== action.payload);
+     
     },
     incrementBasket: (state, action) => {
-      const product = state.find((item) => item.id === action.payload);
+      const product = state.list.find((item) => item.id === action.payload);
       product.count++;
-      return [...state];
+      state.list = [...state.list];
     },
     decrementBasket: (state, action) => {
-      const product = state.find((item) => item.id === action.payload);
+      const product = state.list.find((item) => item.id === action.payload);
       product.count--;
       if (product.count === 0) {
-        return state.filter((item) => item !== product);
+        state.list = state.list.filter((item) => item !== product);
       }
-      return [...state];
+      state.list = [...state.list];
     },
-    clearBasket: () => {
-      return [];
+    clearBasket: (state) => {
+      state.list = [];
     },
   },
 });

@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { basketDecrementAction, basketDeleteItemAction, basketIncrementAction,} from "../../store/reducer/basketReducer";
 import s from './style.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { decrementBasket, deleteBasketItem, incrementBasket } from "../../store/slice/basketSlice";
 
 export default function BasketItem({id, image, price, discont_price, count, title,finalPrice,discountPercentage }) {
   const dispatch = useDispatch();
@@ -21,11 +21,11 @@ export default function BasketItem({id, image, price, discont_price, count, titl
           <span className={s.old_price}>{discont_price?`${price} $`:''}</span>
         </div>
         <div className={s.count_container}>
-          <button onClick={() => dispatch(basketDecrementAction(id))}>-</button>
+          <button onClick={() => dispatch(decrementBasket(id))}>-</button>
           <div>{count}</div>
-          <button onClick={() => dispatch(basketIncrementAction(id))}>+</button>
+          <button onClick={() => dispatch(incrementBasket(id))}>+</button>
         </div>
-        <button className={s.delete_btn} onClick={() => dispatch(basketDeleteItemAction(id))}><FontAwesomeIcon icon={faXmark}/></button>
+        <button className={s.delete_btn} onClick={() => dispatch(deleteBasketItem(id))}><FontAwesomeIcon icon={faXmark}/></button>
       </div>
   </div>
   <img src="/images/long-line.png" alt="line" />

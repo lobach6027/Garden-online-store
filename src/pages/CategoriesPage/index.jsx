@@ -4,7 +4,7 @@ import CategoryCard from "../../components/CategoryCard";
 import s from "./style.module.css";
 
 export default function CategoriesPage() {
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.categories.list);
   return (
     <div className={s.wrapper}>
       <h2>Categories</h2>

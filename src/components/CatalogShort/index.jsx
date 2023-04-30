@@ -5,7 +5,7 @@ import CategoryCard from "../CategoryCard";
 import s from './style.module.css'
 
 export default function CatalogShort() {
-  const categories = useSelector((state) => state.categories).slice(0, 4);
+  const categories = useSelector((state) => state.categories.list).slice(0, 4);
   return (
     <div className={s.wrapper}>
       <div className={s.title}>

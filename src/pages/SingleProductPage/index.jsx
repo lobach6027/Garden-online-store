@@ -6,7 +6,7 @@ import { basketAddAction } from "../../store/reducer/basketReducer";
 
 export default function SingleProductPage() {
   const { id } = useParams();
-  const products = useSelector(({products}) => products);
+  const products = useSelector((state) => state.products.list);
   const product = products.find((item) => item.id === +id);
   const dispatch = useDispatch();
   return (

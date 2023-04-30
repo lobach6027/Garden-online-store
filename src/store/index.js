@@ -1,13 +1,16 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import { productsReducer } from "./reducer/productsReducer";
-import { basketReducer } from "./reducer/basketReducer";
-import { categoriesReducer } from "./reducer/categoriesReducer";
-import thunk from 'redux-thunk'
 
-const rootReducer = combineReducers({
-  products: productsReducer,
-  basket: basketReducer,
-  categories:categoriesReducer
+import { configureStore } from "@reduxjs/toolkit";
+import  productsReducer  from "./slice/productsSlice";
+import  basketReducer  from "./slice/basketSlice"
+import categoriesReducer  from "./slice/categoriesSlice";
+
+
+
+
+export const store = configureStore ({
+  reducer:{
+    products:productsReducer,
+    basket:basketReducer,
+    categories:categoriesReducer
+  }
 });
-
-export const store = createStore(rootReducer, applyMiddleware(thunk));

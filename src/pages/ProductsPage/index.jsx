@@ -4,20 +4,21 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import s from "./style.module.css";
 import FilterSortBar from "../../components/FilterSortBar";
-import { productsRemoveFilterAction } from "../../store/reducer/productsReducer";
+import { removeFilterProducts } from "../../store/slice/productsSlice";
 
 export default function ProductsPage() {
   const { id } = useParams();
   const dispatch = useDispatch()
-  useEffect(()=>{dispatch(productsRemoveFilterAction())},[])
-  const products = useSelector(({ products }) => {
-    if (id === undefined) {
-      return products;
+  useEffect(()=>{dispatch(removeFilterProducts())},[])
+  const products = useSelector(state=>{
+    if (id === undefined){
+      return state.products.list;
     } else {
-      return products.filter((item) => item.categoryId === +id);
+      return state.products.list.filter((item) => item.categoryId === +id);
     }
-  });
-  const category = useSelector(({ categories }) => categories.find((item) => +id === item.id));
+  })
+
+  const category = useSelector((state) => state.categories.list.find((item) => +id === item.id));
  
   return (
       <div className={s.wrapper}>
@@ -28,7 +29,8 @@ export default function ProductsPage() {
         <div className={s.container}>
           {products
           .filter(({show})=>show)
-          .map((item) => <ProductCard key={item.id} {...item} />)}
+          .map((item) => <ProductCard key={item.id} {...item} />)
+        }
         </div>
       </div>
   );

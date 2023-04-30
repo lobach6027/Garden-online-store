@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./style.module.css";
 import { useDispatch } from "react-redux";
-import { basketAddAction } from "../../store/reducer/basketReducer";
+import { addToBasket } from "../../store/slice/basketSlice";
 
 export default function ProductCard({id, title,price,image,discont_price,finalPrice,discountPercentage
 }) {
@@ -11,7 +11,7 @@ const dispatch = useDispatch();
 
   return (
     <div className={s.wrapper}>
-      <button onClick = {()=>dispatch(basketAddAction(+id))}>Add to Cart</button>
+      <button onClick = {()=>dispatch(addToBasket(+id))}>Add to Cart</button>
       <Link to={link}>
         <div className={s.image_container}>
           <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />

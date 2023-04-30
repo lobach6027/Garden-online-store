@@ -8,11 +8,12 @@ import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 import OrderCalculation from "../../components/OrderCalculation";
 import EmptyBasketBlockCalculation from "../../components/EmptyBasketBlockCalculation";
 import { basketClearAction } from "../../store/reducer/basketReducer";
+import { clearBasket } from "../../store/slice/basketSlice";
 
 export default function BasketPage() {
   const dispatch = useDispatch()
-  const { basket, products } = useSelector((state) => state);
-
+  const products = useSelector((state) => state.products.list);
+  const basket = useSelector((state) => state.basket.list);
   const data = basket.map((item) => {
     const product = products.find((elem) => elem.id === item.id);
     return { ...item, ...product };
@@ -36,7 +37,7 @@ export default function BasketPage() {
                 <OrderCalculation />
               </div>
             </div>
-            <button onClick = {()=>{dispatch(basketClearAction())}}>Empty shopping cart</button>
+            <button onClick = {()=>{dispatch(clearBasket())}}>Empty shopping cart</button>
         </div>
       ) : (
         <EmptyBasketBlockCalculation />

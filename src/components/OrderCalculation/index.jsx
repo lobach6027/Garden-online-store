@@ -3,7 +3,8 @@ import s from "./style.module.css";
 import { useSelector } from "react-redux";
 
 export default function OrderCalculation() {
-  const { basket, products } = useSelector((state) => state);
+  const products = useSelector((state) => state.products.list);
+  const basket = useSelector((state) => state.basket.list);
   const data = basket.map((item) => {
     const product = products.find((elem) => elem.id === item.id);
     return { ...item, ...product}

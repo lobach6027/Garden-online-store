@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./style.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { productsSearchActions, productsSortAction } from "../../store/reducer/productsReducer";
+import { searchProduct, sortProducts } from "../../store/slice/productsSlice";
 
 
 
 export default function FilterSortBar() {
 const dispatch = useDispatch()
   
-const sortOnChange = e =>{dispatch(productsSortAction(e.target.value))}
-const searchOnChange = e =>{dispatch(productsSearchActions(e.target.value))}
-const salesHandle = e =>{console.log(e.target.checked)}
+const sortOnChange = e =>{dispatch(sortProducts(e.target.value))}
+const searchOnChange = e =>{dispatch(searchProduct(e.target.value))}
+
+const  [checkboxState, setcheckboxState] = useState(false)
+const salesHandle = e =>{setcheckboxState(!checkboxState)}
 
   return (
     <form className={s.filter_bar}>
@@ -23,8 +26,8 @@ const salesHandle = e =>{console.log(e.target.checked)}
       </div>
       <div className={s.sort}>
         <label>
-          Discounted items
-          <input onClick={salesHandle} type="checkbox" id="custom" name="sortByPrice" />
+          <span>{checkboxState}</span>
+          <input onChange={salesHandle} type="checkbox" checked = {checkboxState} id="custom" name="sortByPrice" />
         </label>
       </div>
       <div className={s.sort}>
