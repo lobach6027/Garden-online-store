@@ -2,32 +2,43 @@ import React, { useState } from "react";
 import s from "./style.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
-import { productsSearchActions, productsSortAction } from "../../store/reducer/productsReducer";
-import { searchProduct, sortProducts } from "../../store/slice/productsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { filterByPrice, filterDiscountProducts, searchProduct, sortProducts } from "../../store/slice/productsSlice";
 
 
 
 export default function FilterSortBar() {
 const dispatch = useDispatch()
-  
+const  [checkboxState, setcheckboxState] = useState(false) 
 const sortOnChange = e =>{dispatch(sortProducts(e.target.value))}
-const searchOnChange = e =>{dispatch(searchProduct(e.target.value))}
+const searchOnChange = e =>{dispatch(searchProduct(e.target.value))}//{searchWorld:e.target.value,checkbox:checkboxState}
 
-const  [checkboxState, setcheckboxState] = useState(false)
-const salesHandle = e =>{setcheckboxState(!checkboxState)}
+const filterFromTo = e => {
+  const formData = new FormData(e.target.parentNode)
+  const data  = Object.fromEntries(formData)
+  data.min = (data.min === '')? -Infinity:+data.min
+  data.max = (data.max === '')? Infinity:+data.max
+  dispatch(filterByPrice(data))
 
+  
+}
+const showSaleProducts = (e)=>{
+  setcheckboxState(e.target.checked)
+  setcheckboxState(e.target.checked)
+  dispatch(filterDiscountProducts(e.target.checked))
+}
+const products = useSelector(state=>state.products.list)
   return (
     <form className={s.filter_bar}>
-      <div className={s.sort}>
+      <form onChange={filterFromTo} className={s.sort} >
         <p>Price</p>
-        <input className={s.input} type="number" name="priceFrom" placeholder="from" />
-        <input className={s.input} type="number" name="priceTo"  placeholder="to"/>
-      </div>
+        <input className={s.input} type="number" name="min" placeholder="from" />
+        <input className={s.input} type="number" name="max"  placeholder="to"/>
+      </form>
       <div className={s.sort}>
         <label>
-          <span>{checkboxState}</span>
-          <input onChange={salesHandle} type="checkbox" checked = {checkboxState} id="custom" name="sortByPrice" />
+          <p>Discount items:{checkboxState?'+':'-'}</p>
+          <input type="checkbox" onClick={showSaleProducts} />
         </label>
       </div>
       <div className={s.sort}>

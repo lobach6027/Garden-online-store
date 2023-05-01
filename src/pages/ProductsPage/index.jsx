@@ -28,7 +28,7 @@ export default function ProductsPage() {
         <FilterSortBar />
         <div className={s.container}>
           {products
-          .filter(({show})=>show)
+          .filter(({show,showPriceFilter})=>show && showPriceFilter)
           .map((item) => <ProductCard key={item.id} {...item} />)
         }
         </div>

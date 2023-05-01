@@ -9,8 +9,9 @@ export const fetchProducts = createAsyncThunk(
       ...item,
       finalPrice: item.discont_price || item.price,
       discountPercentage:item.discont_price?(Math.round((1-item.discont_price/item.price)*100)):0,
-      show:true}))
-     // console.log(totalData)
+      show:true,
+      showPriceFilter:true
+    }))
     return totalData
   }
 )
@@ -19,7 +20,16 @@ export const productsSlice = createSlice({
   initialState: { list: [] },
   reducers: {
     searchProduct:(state, action) => {
-      state.list = state.list.map(item=>({...item, show:item.title.toLowerCase().includes(action.payload.toLowerCase())}))
+        state.list = state.list.map(item=>({...item, show:item.title.toLowerCase().includes(action.payload.toLowerCase())}))
+    },
+    filterByPrice: (state, {payload}) =>{
+      state.list = state.list.map((item)=>{
+        if(!(item.finalPrice >= payload.min &&item.finalPrice <= payload.max)){
+          return {...item, showPriceFilter:false}
+        }else{
+          return {...item, showPriceFilter:true}
+        }
+    })
     },
     removeFilterProducts:(state) => {
       state.list = state.list.map(item=>({...item, show:true}))},
@@ -34,6 +44,18 @@ export const productsSlice = createSlice({
         state.list = state.list.sort((a,b)=>b.discountPercentage - a.discountPercentage)
       }
     },
+    filterDiscountProducts:(state,{payload})=>{
+      if(payload){ 
+        state.list = state.list.map(item=> {
+        if(!item.discountPercentage){
+          return {...item, show:false}
+        }else{
+          return {...item}
+        }})
+      }else{
+      state.list = state.list.map(elem=>({...elem,show:true}))
+      }
+    }
   },
    extraReducers: (builder) =>{
     builder
@@ -51,5 +73,5 @@ export const productsSlice = createSlice({
    }
 });
 
-export const {searchProduct,removeFilterProducts,sortProducts } = productsSlice.actions;
+export const {searchProduct,removeFilterProducts,sortProducts,filterDiscountProducts,filterByPrice} = productsSlice.actions;
 export default productsSlice.reducer;
