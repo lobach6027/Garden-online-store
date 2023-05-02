@@ -29,7 +29,7 @@ export const productsSlice = createSlice({
         }else{
           return {...item, showPriceFilter:true}
         }
-    })
+      })
     },
     removeFilterProducts:(state) => {
       state.list = state.list.map(item=>({...item, show:true}))},

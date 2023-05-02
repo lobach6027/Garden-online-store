@@ -19,11 +19,8 @@ const filterFromTo = e => {
   data.min = (data.min === '')? -Infinity:+data.min
   data.max = (data.max === '')? Infinity:+data.max
   dispatch(filterByPrice(data))
-
-  
 }
 const showSaleProducts = (e)=>{
-  setcheckboxState(e.target.checked)
   setcheckboxState(e.target.checked)
   dispatch(filterDiscountProducts(e.target.checked))
 }
