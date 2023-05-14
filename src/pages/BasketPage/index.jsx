@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 import OrderCalculation from "../../components/OrderCalculation";
 import EmptyBasketBlockCalculation from "../../components/EmptyBasketBlockCalculation";
-import { basketClearAction } from "../../store/reducer/basketReducer";
 import { clearBasket } from "../../store/slice/basketSlice";
+import ScrollToTop from "../../components/ScrollToTop";
 
 export default function BasketPage() {
   const dispatch = useDispatch()

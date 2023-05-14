@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import s from "./style.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { filterByPrice, filterDiscountProducts, searchProduct, sortProducts } from "../../store/slice/productsSlice";
+import { removeFilterProducts } from "../../store/slice/productsSlice";
+import { useLocation } from "react-router-dom";
 
 
 
 export default function FilterSortBar() {
+  const location = useLocation()
+  console.log(location.pathname ==='/products/sale')
 const dispatch = useDispatch()
 const  [checkboxState, setcheckboxState] = useState(false) 
 const sortOnChange = e =>{dispatch(sortProducts(e.target.value))}
@@ -24,22 +28,24 @@ const showSaleProducts = (e)=>{
   setcheckboxState(e.target.checked)
   dispatch(filterDiscountProducts(e.target.checked))
 }
-const products = useSelector(state=>state.products.list)
+
+
   return (
-    <form className={s.filter_bar}>
+    <div className={s.filter_bar}>
       <form onChange={filterFromTo} className={s.sort} >
-        <p>Price</p>
-        <input className={s.input} type="number" name="min" placeholder="from" />
-        <input className={s.input} type="number" name="max"  placeholder="to"/>
+        <p>Price:</p>
+        <input className={s.input_price} type="number" name="min" placeholder="from" />
+        <input className={s.input_price} type="number" name="max"  placeholder="to"/>
+        <button>x</button>
       </form>
-      <div className={s.sort}>
-        <label>
-          <p>Discount items:{checkboxState?'+':'-'}</p>
+   <div> 
+    {location.pathname ==='/products/sale'?"":<div className={s.sort}>
+          <span>Discount items: </span>
           <input type="checkbox" onClick={showSaleProducts} />
-        </label>
-      </div>
+      </div>} 
+    </div>
       <div className={s.sort}>
-        <p>Sorted</p>
+        <p>Sorted by: </p>
         <select onChange={sortOnChange}>
           <option className={s.input}  value='0'>select option</option>
           <option className={s.input} value='discount'>discount</option>
@@ -54,6 +60,7 @@ const products = useSelector(state=>state.products.list)
           <span><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
         </div>
       </div>
-    </form>
+      <button className={s.reset_filter_btn} onClick={()=>dispatch(removeFilterProducts)}>Reset all settings</button>
+    </div>
   );
 }

@@ -6,12 +6,13 @@ import Footer from "../Footer";
 import Header from "../Header";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { asyncLoadCategoriesAction } from "../../store/asyncAction/categories";
 import ProductsPage from "../../pages/ProductsPage";
 import SingleProductPage from "../../pages/SingleProductPage";
 import BasketPage from "../../pages/BasketPage";
 import { fetchProducts } from "../../store/slice/productsSlice";
 import { fetchCategories } from "../../store/slice/categoriesSlice";
+import './style.css'
+
 
 function App() {
   const dispatch = useDispatch();

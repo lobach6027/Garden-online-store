@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "./style.module.css";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../../store/slice/basketSlice";
@@ -10,21 +10,21 @@ const link = `/product/${id}`;
 const dispatch = useDispatch();
 
   return (
-    <div className={s.wrapper}>
-      <button onClick = {()=>dispatch(addToBasket(+id))}>Add to Cart</button>
-      <Link to={link}>
-        <div className={s.image_container}>
-          <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />
+    <div className={s.wrapper_card}>
+      <div className={(discountPercentage?(s.sale_label):(s.hide_sale_label))}>{(discountPercentage!==0)?(`- ${discountPercentage} %  `):('')}</div>
+      <button className={s.basket_btn} onClick = {()=>dispatch(addToBasket(+id))}>Add to Cart</button>
+      <NavLink className={s.content} to={link}>
+        <div className={s.img_block}>
+        <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />
         </div>
-        <div className={s.info_block} >
+        <div className={s.card_info_block} >
+          <p className={s.product_title}>{title}</p>
           <div className={s.price_block}>
-            <span className={s.new_price}>{finalPrice} $</span>
-            <span className={s.old_price}>{discont_price?`${price} $`:''}</span>
-            <span className={s.discount}>{(discountPercentage!==0)?(`${discountPercentage} %`):('')}</span>
+            <span className={s.new_price}><span className={s.price_title}></span> ${finalPrice.toFixed(2)}</span>
+            <span className={s.old_price}>{discont_price?`$${price.toFixed(2)}`:''}</span>
           </div>
-          <p className={s.title_product}>{title}</p>
         </div>
-      </Link>
+      </NavLink>
     </div>
   );
 }

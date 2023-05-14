@@ -6,12 +6,11 @@ export default function CastNavLink() {
     const basket = useSelector((state)=>state.basket.list);
     const basketCount = basket.reduce((prev,{count})=>prev+count,0)
   return (
-    <button className={s.basket}>
-        <NavLink className={s.link} to="/basket" >
-                <img  src="/images/basket-icon.png" alt="basket" />
-                <span  className={(basketCount)?(s.info):(s.hide)}> {basketCount}</span>
-        </NavLink>
+    <button className={s.shopping_cart_block}>
+      <NavLink to="/basket" >
+        <img  src="/images/basket-icon.png" alt="basket" />
+        <span  className={(basketCount)?(s.count_basket_item):(s.hide_empty_count)}> {basketCount}</span>
+      </NavLink>
     </button>
-    
   )
 }

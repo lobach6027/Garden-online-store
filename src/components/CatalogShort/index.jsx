@@ -3,20 +3,19 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CategoryCard from "../CategoryCard";
 import s from './style.module.css'
+import CategoryItem from "../CategoryItem";
 
 export default function CatalogShort() {
   const categories = useSelector((state) => state.categories.list).slice(0, 4);
   return (
-    <div className={s.wrapper}>
-      <div className={s.title}>
-        <h3>Catalog</h3>
-        <button>
-          <Link to="/categories/all">All categories</Link>
-        </button>
+    <div className={s.wrapper_favour_categories}>
+      <div className={s.title_short_catalog}>
+        <h3>OUR FAVOURITE COLLECTIONS</h3>
+        <Link to="/categories/all"><button>ALL CATEGORIES</button></Link>
       </div>
-      <div className={s.categories_container}>
+      <div className={s.categories_short_container}>
         {categories.map((item) => (
-          <CategoryCard key={item.id} {...item} />
+          <CategoryItem key={item.id} {...item}/>
         ))}
       </div>
     </div>

@@ -19,8 +19,10 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState: { list: [] },
   reducers: {
-    searchProduct:(state, action) => {
-        state.list = state.list.map(item=>({...item, show:item.title.toLowerCase().includes(action.payload.toLowerCase())}))
+    searchProduct:(state,{payload}) => {
+        state.list = state.list
+        .filter(item=>item.show || item.showPriceFilter)
+        .map(item=>({...item, show:item.title.toLowerCase().includes(payload.toLowerCase())}))
     },
     filterByPrice: (state, {payload}) =>{
       state.list = state.list.map((item)=>{
@@ -32,7 +34,7 @@ export const productsSlice = createSlice({
       })
     },
     removeFilterProducts:(state) => {
-      state.list = state.list.map(item=>({...item, show:true}))},
+      state.list = state.list.map(item=>({...item, show:true,showPriceFilter:true}))},
     sortProducts:(state, action) => {
       if(action.payload ==='priceUp'){
         state.list = state.list.sort((a,b)=>a.finalPrice - b.finalPrice)

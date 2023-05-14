@@ -1,45 +1,75 @@
-.sale_container {
-  width: 100%;
-  height: 600px;
-  display: flex;
-  flex-direction: row;
-  background: #a1e2eb;
-  justify-content: space-between;
-  align-items: center;
-}
-.sale_info {
-  width: 50%;
-  margin-left: 50px;
+.sale_banner {
+  margin-top: 120px;
+  max-width: 100%;
+  height: 400px;
+  padding: 30px 20px;
+  background: linear-gradient(
+      to right,
+      #eee 0%,
+      #eef calc(100% - 1140px),
+      transparent calc(50% - 50px),
+      transparent calc(50% + 950px),
+      rgb(240, 240, 251) calc(50% + 1140px)
+    ),
+    url("../../../public/images/sale-img.png") no-repeat top right;
+
   display: flex;
   flex-direction: column;
+  align-items: self-start;
   justify-content: space-between;
-  gap: 60px;
-  align-items: flex-start;
 }
-.sale_info h2 {
+.addition_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.addition_info h3 {
   font-family: "Montserrat";
-  font-weight: 700;
-  font-size: 80px;
-  color: #ffffff;
+  font-weight: 600;
+  font-size: 50px;
+  color: black;
   margin: 0;
+  margin-bottom: 30px;
 }
-.sale_info h3 {
+.addition_info p {
+  color: gray;
+  font-size: 16px;
   font-family: "Montserrat";
-  font-weight: 700;
-  font-size: 63px;
-  color: #ffffff;
-  line-height: normal;
-  margin: 0;
 }
-.sale_info button{
-    background: #FFFFFF; 
-    font-family: "Montserrat";
-    padding: 25px 50px;
-    border:none ;
-    font-size:25px ;
-    border-radius: 5%;
-    font-weight: 700;
+
+.sale_banner button {
+  border: none;
+  font-family: "Montserrat";
+  min-width: 170px;
+  height: 40px;
+  font-size: 18px;
+  color: #339933;
+  font-weight: 500;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #339933 ;
+ color: white;
 }
-.sale_img img{
- height: 600px; 
+.sale_banner button:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  background-color: #73a173 ;
+  opacity: 0.5;
+ color: white;
+}
+
+@media (max-width: 720px){
+
+  .sale_banner{
+    background: url('../../../public/images/sale-img.png');
+    background-size: cover;
+    height: 260px;
+  }
+  .addition_info h3{
+    width: 80%;
+    font-size: 30px;
+  }
+  .addition_info p{
+    display: none;
+  }
 }

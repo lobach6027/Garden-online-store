@@ -1,30 +1,32 @@
-.wrapper {
+.wrapper_category {
   text-decoration: none;
-  color: black;
 }
-.card:hover{
+.category_card:hover {
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   transform: scale(1.03);
   transition: all 0.3s ease-in;
 }
-.card {
+.category_title {
+  color: black;
+}
+.category_card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.card p {
+.category_card p {
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 18px;
   margin: 10px;
 }
-.container {
+.catalog_container {
   width: 100%;
   height: 320px;
 }
-.card img {
+.category_card img {
   width: 100%;
   height: 100%;
   object-fit: cover;

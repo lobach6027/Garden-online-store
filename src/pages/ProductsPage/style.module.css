@@ -1,15 +1,18 @@
 .wrapper {
   padding: 20px;
+  margin-top: 100px;
 }
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 410px;
-  gap: 30px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-rows: repeat( 330px);
+  gap: 15px 15px;
+  margin: 20px auto;
 }
 .products_title {
   font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 40px;
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
+ /* background-image: url("../../../public/images/back.png");*/
 }

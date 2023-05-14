@@ -4,6 +4,7 @@ import s from './style.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { decrementBasket, deleteBasketItem, incrementBasket } from "../../store/slice/basketSlice";
+import { Link } from "react-router-dom";
 
 export default function BasketItem({id, image, price, discont_price, count, title,finalPrice,discountPercentage }) {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function BasketItem({id, image, price, discont_price, count, titl
         <img src={`http://localhost:3333${image}`} alt={title} />
       </div>
       <div className={s.info}>
-        <p>{title}</p>
+       <Link to = {`/product/${id}`}> <p>{title}</p></Link>
         <div className={s.price_block}>
           <span className={s.new_price}>{finalPrice}$</span>
           <span className={s.old_price}>{discont_price?`${price} $`:''}</span>

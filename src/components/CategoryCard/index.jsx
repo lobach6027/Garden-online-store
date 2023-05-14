@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 export default function CategoryCard({ id, title, image }) {
   return (
-   <Link className={s.wrapper} to = {`/categories/${id}`}>
-    <div className={s.card} >
-      <div className={s.container}>
+   <Link className={s.wrapper_category} to = {`/categories/${id}`}>
+    <div className={s.category_card} >
+      <div className={s.catalog_container}>
         <img   src={`http://localhost:3333${image}`} alt={title} />
       </div>
-      <p>{title}</p>
+      <p className={s.category_title}>{title}</p>
     </div>
    </Link>
   );

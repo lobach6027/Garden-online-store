@@ -1,0 +1,38 @@
+.banner {
+  width: 100%;
+  position: relative;
+}
+.info {
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+}
+.info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info div h2 {
+  font-size: 90px;
+  color: rgb(61, 100, 61);
+}
+.info div p {
+  color: rgb(61, 100, 61);
+  font-size: 40px;
+}
+.btn {
+  padding: 20px 40px;
+  color: white;
+  font-size: 20px;
+  background-color: rgba(61, 100, 61,0.9);
+  border: none;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color:  rgb(61, 100, 61);
+}

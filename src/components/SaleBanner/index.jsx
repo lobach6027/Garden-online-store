@@ -1,18 +1,15 @@
 import React from "react";
 import s from './style.module.css'
+import { Link } from "react-router-dom";
 export default function SaleBanner() {
   return (
-    <div className={s.sale_container}>
-      <div className={s.sale_info}>
-        <div>
-            <h2>Sale</h2>
-            <h3>New season</h3>
-        </div>
-        <button>Sale</button>
+    <div className={s.sale_banner}>
+      <div className={s.addition_info}>
+      <h3>For the true plant lovers</h3>
+      <p>Welcome to our online shop full of the plants and accessouries you'd love to have at home.</p>
+      <p>Plants are a great addition to any home. They add color, life, and even help improve air quality! </p>
       </div>
-      <div className={s.sale_img}>
-        <img src="/images/sale-banner-img.png" alt="banner-flower" />
-      </div>
+      <Link to = '/products/sale'><button>SALE</button></Link>
     </div>
   );
 }
