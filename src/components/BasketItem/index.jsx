@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import s from './style.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faTrash, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { decrementBasket, deleteBasketItem, incrementBasket } from "../../store/slice/basketSlice";
 import { Link } from "react-router-dom";
 
@@ -11,25 +11,25 @@ export default function BasketItem({id, image, price, discont_price, count, titl
 
   return (
 <>
-  <div className={s.container}>
-      <div className={s.img}>
+  <div className={s.basket_item_container}>
+    <Link to = {`/product/${id}`}>
+    <div className={s.img_block}>
+      <div className={(discountPercentage)?(s.discount_label):(s.hide)}> - {discountPercentage} %</div>
         <img src={`http://localhost:3333${image}`} alt={title} />
-      </div>
-      <div className={s.info}>
-       <Link to = {`/product/${id}`}> <p>{title}</p></Link>
-        <div className={s.price_block}>
-          <span className={s.new_price}>{finalPrice}$</span>
-          <span className={s.old_price}>{discont_price?`${price} $`:''}</span>
-        </div>
-        <div className={s.count_container}>
-          <button onClick={() => dispatch(decrementBasket(id))}>-</button>
-          <div>{count}</div>
-          <button onClick={() => dispatch(incrementBasket(id))}>+</button>
-        </div>
-        <button className={s.delete_btn} onClick={() => dispatch(deleteBasketItem(id))}><FontAwesomeIcon icon={faXmark}/></button>
-      </div>
+    </div>
+     <div className={s.product_info}> <p>{title}</p></div>
+    </Link>
+    <div className={s.count_container}>
+      <button className={s.count_btn} onClick={() => dispatch(decrementBasket(id))}>-</button>
+      <div>{count}</div>
+      <button className={s.count_btn} onClick={() => dispatch(incrementBasket(id))}>+</button>
+    </div>
+    <div className={s.price_block}>
+      <span className={s.new_price}>${finalPrice}</span>
+      <span className={s.old_price}>{discont_price?`$${price.toFixed(2)}`:''}</span>
+    </div>
+    <button className={s.delete_btn} onClick={() => dispatch(deleteBasketItem(id))}><FontAwesomeIcon icon={faTrashAlt}/></button>
   </div>
-  <img src="/images/long-line.png" alt="line" />
 </>
   );
 }

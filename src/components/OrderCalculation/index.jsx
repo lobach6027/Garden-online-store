@@ -9,20 +9,53 @@ export default function OrderCalculation() {
     const product = products.find((elem) => elem.id === item.id);
     return { ...item, ...product}
   });
-  const totalPrice = data.reduce((prev,{count,finalPrice})=>prev+count*finalPrice,0)
+  console.log(data)
+  
+const totalPrice = data.reduce((prev,{count,finalPrice})=>prev+count*finalPrice,0) || 0
+const totalCount = data.reduce((prev,{count})=>prev+count,0)|| 0
+const priceWithoutDiscont = data.reduce((prev,{count,price})=>prev+count*price,0)|| 0
+  console.log(totalPrice)
+  console.log(totalCount)
+  console.log(priceWithoutDiscont)
 
-  return (
+return (
     <div>
       {basket.length ? (
-        <form className={s.wrapper}>
-          <p>Order details</p>
-          <div>
-            <span>Total: </span>
-            <span>{totalPrice} $</span>
+        <div className={s.wrapper}>
+          <h4>Your order</h4>
+          <div className={s.details}>
+            <div className={s.order_detail}>
+              <span>Total number of items</span>
+              <span> {totalCount} </span>
+            </div>
+            <div className={s.order_detail}>
+              <span>Order price without discount</span>
+              <span>${priceWithoutDiscont.toFixed(2)}</span>
+            </div>
+            <div className={s.order_detail}>
+              <span>Sales Tax</span>
+              <span>${(priceWithoutDiscont-totalPrice).toFixed(2)}</span>
+            </div>
+            <div className={s.order_detail}>
+              <span>Subtotal</span>
+              <span> ${totalPrice.toFixed(2)}</span>
+            </div>
+            <div className={s.order_detail}>
+              <span >Shipping (Courier Delivery)</span>
+              <span>${totalPrice>60? 0 : 9.99}</span>
+            </div>
           </div>
-          <input type="tel" placeholder="Phone number" required />
-          <input type="submit" value="Order" />
-        </form>
+          <div className={s.total_amount}>
+            <h4>Total amount</h4>
+            <h4>${totalPrice>60? totalPrice.toFixed(2):totalPrice+9.99}</h4>
+          </div>
+          <form className={s.order_confirm}>
+            <p>Enter your phone number</p>
+            <input type="tel" placeholder="+49" required />
+            <input type="submit" value="Order" />
+          </form>
+          
+        </div>
       ) : (
         ""
       )}

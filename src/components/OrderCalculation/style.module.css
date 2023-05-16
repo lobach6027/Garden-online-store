@@ -1,12 +1,72 @@
 .wrapper {
   width: 100%;
-  border: 2px solid black;
-  padding: 30px;
-  border-radius: 10px;
+  height: 100%;
+  height: auto;
+  padding: 40px;
+  background-color: rgb(245, 244, 244);
 }
-.wrapper p {
+.wrapper h4 {
   font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
 }
+.details{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-bottom: 2px solid rgb(189, 189, 189);
+}
+.order_detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+.order_detail span{
+  font-size: 16px;
+}
+.total_amount{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.total_amount h4{
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 22px;
+}
+.order_confirm{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.order_confirm p{
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 14px;
+}
+ input[type=tel]{
+  width: 60%;
+  padding: 7px;
+  border: 1px solid rgb(211, 211, 211);
+  outline: none;
+ }
+ input[type=submit]{
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid green;
+  outline: none;
+  color: green;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 16px;
+ }
+ input[type=submit]:hover{
+  background-color: green;
+  color: white;
+  transition: 1s;
+ }
