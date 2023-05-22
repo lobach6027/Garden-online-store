@@ -2,7 +2,8 @@ import React from "react";
 import s from "./style.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faLocation, faClock} from "@fortawesome/free-solid-svg-icons";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Footer() {
   return (
     <div className={s.wrapper_footer}>
@@ -36,6 +37,7 @@ export default function Footer() {
           <img src="/images/twiter.png" alt="whatsAp" />
         </a>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} theme="light"/>
     </div>
   );
 }

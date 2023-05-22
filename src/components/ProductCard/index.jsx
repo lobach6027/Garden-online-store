@@ -3,16 +3,29 @@ import { NavLink } from "react-router-dom";
 import s from "./style.module.css";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../../store/slice/basketSlice";
+import { toast } from "react-toastify";
 
 export default function ProductCard({id, title,price,image,discont_price,finalPrice,discountPercentage
 }) {
 const link = `/product/${id}`;
 const dispatch = useDispatch();
 
+const addToBasketAction = (id) =>{
+  toast.success('Successfully added to cart', {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+  dispatch(addToBasket(+id))
+}
   return (
     <div className={s.wrapper_card}>
       <div className={(discountPercentage?(s.sale_label):(s.hide_sale_label))}>{(discountPercentage!==0)?(`- ${discountPercentage} %  `):('')}</div>
-      <button className={s.basket_btn} onClick = {()=>dispatch(addToBasket(+id))}>Add to Cart</button>
+      <button className={s.basket_btn} onClick = {()=>addToBasketAction()}>Add to Cart</button>
       <NavLink className={s.content} to={link}>
         <div className={s.img_block}>
         <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />

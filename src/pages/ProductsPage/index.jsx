@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
@@ -8,6 +8,7 @@ import { removeFilterProducts } from "../../store/slice/productsSlice";
 import ScrollToTop from "../../components/ScrollToTop";
 
 export default function ProductsPage() {
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -15,6 +16,9 @@ export default function ProductsPage() {
     dispatch(removeFilterProducts());
   }, []);
 
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
   const products = useSelector((state) => {
     if (id === undefined) {
       return state.products.list;
@@ -25,7 +29,6 @@ export default function ProductsPage() {
   const category = useSelector((state) =>
     state.categories.list.find((item) => +id === item.id)
   );
-
   return (
     <>
       {location.pathname === "/products/sale"?

@@ -1,5 +1,6 @@
-.wrapper {
-  margin: 100px;
+.categories_wrapper {
+  width: 100%;
+  margin-top: 100px;
   padding: 20px;
 }
 .wrapper h2 {
@@ -15,4 +16,12 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 350px;
   gap: 55px 30px;
+}
+@media (max-width: 768px){
+  .categories_container{
+    grid-auto-rows: 160px;
+    margin: 20px auto;
+    gap:20px;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr))
+  }
 }

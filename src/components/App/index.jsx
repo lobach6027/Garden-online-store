@@ -24,6 +24,7 @@ function App() {
   return (
     <div>
       <Header />
+      
       <Routes>
         <Route element={<CategoriesPage />} path="/categories/all" />
         <Route element={<ProductsPage />} path="/products/all" />
@@ -34,6 +35,7 @@ function App() {
         <Route element={<SingleProductPage/>} path="/product/:id" />
         <Route element={<BasketPage/>} path="/basket" />
       </Routes>
+      
       <Footer />
     </div>
   );

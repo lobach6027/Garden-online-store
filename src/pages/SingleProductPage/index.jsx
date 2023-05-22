@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./style.module.css";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { basketAddAction } from "../../store/reducer/basketReducer";
-import SameCategoryProducts from "../../components/SameCategoryProduct";
+import { addToBasket } from "../../store/slice/basketSlice";
 import ProductCard from "../../components/ProductCard";
+import { toast } from "react-toastify";
 
 export default function SingleProductPage() {
   const { id } = useParams();
@@ -12,7 +12,22 @@ export default function SingleProductPage() {
   const products = useSelector((state) => state.products.list);
   const product = products.find((item) => item.id === +id);
   const sameCategoryProducts = products.filter((item)=>+item.categoryId=== +product.categoryId)
-
+  
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[id])
+  const addToCartAction = (id) =>{
+    toast.success('Successfully added to cart', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  dispatch(addToBasket(+id))
+}
   
   return (  
     <div>
@@ -32,7 +47,7 @@ export default function SingleProductPage() {
               <span className={s.old_price}>{product.discont_price ? `${product.price} $` : ""}</span>
             </div>
             <div className={s.descriprion_container}>{product.description}</div>
-            <button onClick={() => dispatch(basketAddAction(+id))}>Add to cart</button>
+            <button onClick = {()=>addToCartAction(id)}>Add to cart</button>
           </div>
         </div>
         <div className={s.guarantee}>

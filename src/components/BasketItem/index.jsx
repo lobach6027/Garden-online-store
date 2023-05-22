@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import s from './style.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faTrash, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { decrementBasket, deleteBasketItem, incrementBasket } from "../../store/slice/basketSlice";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ export default function BasketItem({id, image, price, discont_price, count, titl
       <button className={s.count_btn} onClick={() => dispatch(incrementBasket(id))}>+</button>
     </div>
     <div className={s.price_block}>
-      <span className={s.new_price}>${finalPrice}</span>
+      <span className={s.new_price}>${finalPrice?`${finalPrice.toFixed(2)}`:''}</span>
       <span className={s.old_price}>{discont_price?`$${price.toFixed(2)}`:''}</span>
     </div>
     <button className={s.delete_btn} onClick={() => dispatch(deleteBasketItem(id))}><FontAwesomeIcon icon={faTrashAlt}/></button>

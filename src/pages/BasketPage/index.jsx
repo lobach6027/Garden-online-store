@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import BasketItem from "../../components/BasketItem";
@@ -11,6 +11,7 @@ import { clearBasket } from "../../store/slice/basketSlice";
 import ScrollToTop from "../../components/ScrollToTop";
 
 export default function BasketPage() {
+  
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
   const basket = useSelector((state) => state.basket.list);
