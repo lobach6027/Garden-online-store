@@ -15,7 +15,7 @@ s.wrapper_hide{
   margin: 20px auto;
 }
 .products_title {
-  font-family: "Montserrat";
+  font-family:var(--font-fam);
   font-weight: 600;
   font-size: 30px;
   text-align: center;

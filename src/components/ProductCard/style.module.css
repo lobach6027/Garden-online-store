@@ -1,12 +1,12 @@
 .wrapper_card {
   width: 100%;
   position: relative;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--lightgray-color);
 }
 .sale_label {
-  color: #339933;
+  color: var(--main-color);
   background: #f1fff1;
-  border: 1px solid green;
+  border: 1px solid var(--main-color);
   border-radius: 10px;
   padding: 4px;
   opacity: 0.9;
@@ -21,7 +21,7 @@
 }
 .basket_btn {
   width: 100%;
-  border: 2px solid #339933;
+  border: 2px solid var(--main-color);
   background: #f1fff1;
   position: absolute;
   bottom: 100px;
@@ -29,10 +29,10 @@
   z-index: 100;
   left: 0;
   padding: 12px 0;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-weight: 600;
   font-size: 16px;
-  color: #339933;
+  color: var(--main-color);
   opacity: 0;
   cursor: pointer;
 }
@@ -58,14 +58,14 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
-  height:100px;
+  height: 100px;
   justify-content: space-between;
 }
 .product_title {
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-weight: 500;
   font-size: 16px;
-  color: rgb(55, 53, 53);
+  color: var(--gunmetal-color);
   text-align: center;
 }
 .price_block {
@@ -78,10 +78,10 @@
   font-weight: 500;
   font-size: 20px;
   font-style: normal;
-  color: #339933;
+  color: var(--main-color);
 }
 .old_price {
-  color: #969696;
+  color: var(--gray-color);
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -96,5 +96,4 @@
 }
 .wrapper_card:hover .image {
   transform: scale(1.05);
-
 }

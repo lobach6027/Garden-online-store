@@ -14,7 +14,7 @@
   background-color: white;
   padding: 5px 5px;
   border-radius: 50%;
-  background: #339933;
+  background: var(--main-color);
   color: white;
   right: 2px;
   bottom: 5px;

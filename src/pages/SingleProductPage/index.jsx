@@ -11,11 +11,18 @@ export default function SingleProductPage() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
   const product = products.find((item) => item.id === +id);
-  const sameCategoryProducts = products.filter((item)=>+item.categoryId=== +product.categoryId)
-  
+ const sameCategoryProducts = products.filter((item)=>+item.categoryId=== +product.categoryId)
+ /*const sameCategoryProducts = products.filter((item)=>
+ {if(item.categoryId!==undefined && product.categoryId !== undefined){
+ return +item.categoryId === +product.categoryId
+ }else{ return []}
+ 
+ }) */ 
+ console.log(sameCategoryProducts)
   useEffect(()=>{
     window.scroll(0,0)
   },[id])
+
   const addToCartAction = (id) =>{
     toast.success('Successfully added to cart', {
       position: "top-right",
@@ -32,7 +39,7 @@ export default function SingleProductPage() {
   return (  
     <div>
       {product === undefined ? (
-        <p>Please wait ...</p>
+        <p>Please wait while the items are loading...</p>
         ) : (
           <>
           <div className={s.wrapper}>

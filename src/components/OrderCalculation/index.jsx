@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearBasket } from "../../store/slice/basketSlice";
 import { toast } from "react-toastify";
 
+
 export default function OrderCalculation() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
@@ -46,7 +47,7 @@ const asyncOrderSending = async ( phoneNumber, data) => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+          });  
         console.log({userPhone: phoneNumber, order: data})
        }
      } catch(error) {

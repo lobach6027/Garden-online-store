@@ -28,7 +28,7 @@
   justify-content: space-between;
 }
 .wrapper h3 {
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -41,13 +41,13 @@
 }
 
 .info button {
-  background: #339933;
-  border: 2px solid #339933;
+  background:var( --main-color);
+  border: 2px solid var( --main-color);
   width: 341px;
   height: 86px;
   border-radius: 10px;
   color: white;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -62,27 +62,27 @@
   font-size: 28px;
 }
 .old_price {
-  color: #8b8b8b;
+  color: var(--gray-color);
   font-size: 20px;
   text-decoration: line-through;
 }
 .discount {
   position: absolute;
   font-size: 20px;
-  color: #ff32a1;
+  color: #fb6eb9;
   top: 15px;
   left: 0;
-  border: 1px solid #ff32a1;
+  border: 1px solid #fb6eb9;
   background-color: rgba(250, 250, 250, 0.9);
   padding: 5px;
 }
 .info_container button {
   width: 100%;
   height: 50px;
-  background-color: #339933;
+  background-color: var(--main-color);
   font-size: 22px;
   font-weight: 500;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   color: white;
   border: none;
   cursor: pointer;
@@ -92,7 +92,7 @@
   background-color: rgb(58, 82, 61);
 }
 .descriprion_container {
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -130,14 +130,12 @@
   height: 60%;
 }
 .guarantee_days p {
-  font-family: "Montserrat";
-  font-style: normal;
+  font-family: var(--font-fam);
   font-weight: 400;
   font-size: 18px;
 }
 .guarantee_shipping p {
-  font-family: "Montserrat";
-  font-style: normal;
+  font-family: var(--font-fam);
   font-weight: 400;
   font-size: 18px;
 }
@@ -145,9 +143,9 @@
   text-align: center;
   padding: 15px;
   font-size: 26px;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-weight: 500;
-  color: rgb(52, 52, 52);
+  color: var(--gunmetal-color);
 }
 .addendum_products {
   width: 80%;

@@ -35,14 +35,14 @@ export const productsSlice = createSlice({
     removeFilterProducts:(state) => {
       state.list = state.list.map(item=>({...item, show:true,showPriceFilter:true}))
     },
-    sortProducts:(state, action) => {
-      if(action.payload ==='priceUp'){
+    sortProducts:(state, {payload}) => {
+      if(payload ==='priceUp'){
         state.list = state.list.sort((a,b)=>a.finalPrice - b.finalPrice)
-      }else if(action.payload ==='priceDown'){
+      }else if(payload ==='priceDown'){
         state.list = state.list.sort((a,b)=>b.finalPrice - a.finalPrice)
-      }else if(action.payload ==='abc'){
+      }else if(payload ==='abc'){
         state.list = state.list.sort((a,b)=>a.title > b.title? 1:-1)
-      }else if(action.payload ==='discount'){
+      }else if(payload ==='discount'){
         state.list = state.list.sort((a,b)=>b.discountPercentage - a.discountPercentage)
       }
     },

@@ -4,9 +4,9 @@
   height: 250px;
 }
 .wrapper_guarantee h3 {
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-weight: 600;
-  color: #339933;
+  color: var(--main-color);
   text-align: center;
   margin-bottom: 15px;
 }
@@ -18,14 +18,14 @@
   margin: 0 auto;
 }
 .card_guarantee {
-  font-family: "Montserrat";
-  color: gray;
+  font-family: var(--font-fam);
+  color: var(--gray-color);
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #339933;
+  border: 1px solid var(--main-color);
 }
 .container_guarantee img {
   height: 120px;

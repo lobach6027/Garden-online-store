@@ -18,24 +18,24 @@
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 30px;
-  color: rgb(93, 91, 91);
+  color: var(--gray-color);
 }
 .bestsellers_title a button {
   background: transparent;
-  border: 2px solid #339933;
+  border: 2px solid var(--main-color);
   min-width: 170px;
   height: 40px;
   box-sizing: border-box;
   cursor: pointer;
-  color: #339933;
-  font-family: "Montserrat";
+  color: var(--main-color);
+  font-family: var(--font-fam);
   font-weight: 500;
   font-size: 18px;
 }
 .bestsellers_title a button:hover {
   cursor: pointer;
   transition: all 0.3s ease-in;
-  background: #339933;
+  background: var(--main-color);
   color: white;
 }
 @media(max-width: 820px){

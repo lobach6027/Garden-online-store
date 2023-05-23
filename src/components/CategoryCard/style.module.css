@@ -1,7 +1,6 @@
 .wrapper_category {
   text-decoration: none;
 }
-
 .category_title {
   color: black;
 }
@@ -18,7 +17,7 @@
   transition: all 0.3s ease-in;
 }
 .category_card p {
-  font-family: "Montserrat";
+  font-family:var(--font-fam);
   font-weight: 600;
   font-size: 18px;
   margin: 10px;

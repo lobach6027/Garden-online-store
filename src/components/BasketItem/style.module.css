@@ -5,7 +5,7 @@
   padding: 10px 0 10px 20px;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid var(--lightgray-color);
   position: relative;
 }
 
@@ -42,7 +42,7 @@
 }
 .basket_item_container a p {
   font-size: 18px;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
 }
 
 .product_info {
@@ -58,7 +58,7 @@
   justify-content: space-between;
 }
 .count_btn {
-  border: 1px solid rgb(207, 207, 207);
+  border: 1px solid var(--lightgray-color);
   width: 40px;
   height: 40px;
   font-size: 22px;
@@ -87,7 +87,7 @@
   font-size: 18px;
 }
 .old_price {
-  color: #8b8b8b;
+  color: var(--gray-color);
   font-weight: 400;
   font-size: 16px;
   text-decoration: line-through;
@@ -99,7 +99,7 @@
   outline: none;
   font-size: 22px;
   cursor: pointer;
-  color: gray;
+  color: var( --gray-color);
 }
 .delete_btn:hover {
   color: black;

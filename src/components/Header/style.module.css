@@ -28,23 +28,23 @@
 }
 .logo_container p {
   font-size: 14px;
-  color: green;
-  font-family: "Montserrat";
+  color: var(--main-color);
+  font-family: var(--font-fam);
 }
 .catalog_btn button{
   background: transparent;
-  border: 2px solid #339933;
+  border: 2px solid var(--main-color);
   min-width: 170px;
   height: 40px;
   box-sizing: border-box;
   cursor: pointer;
-  color: #339933;
-  font-family: "Montserrat";
+  color: var(--main-color);
+  font-family: var(--font-fam);
   font-weight: 500;
   font-size: 18px;
 }
 .catalog_btn button:hover {
-  background-color: #339933;
+  background-color: var(--main-color);
   color: white;
   cursor: pointer;
   transition: all 0.3s ease-in;
@@ -59,14 +59,14 @@
 }
 .nav a {
   text-decoration: none;
-  font-family: "Montserrat";
+  font-family: var(--font-fam);
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   color: #000000;
 }
 .nav a:hover {
-  text-decoration: underline #339933;
+  text-decoration: underline var(--main-color);
 }
 .basket {
   width: 15%;
@@ -75,7 +75,7 @@
   justify-content: flex-end;
 }
 .nav .active {
-  color: #339933;
+  color: var(--main-color);
 }
 .nav button {
   display: none;
@@ -85,7 +85,7 @@
   height: 40px;
   width: 40px;
   border: none;
-  color: gray;
+  color: var(--gray-color);
   background-color: transparent;
   cursor: pointer;
 }
@@ -126,7 +126,7 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: gray;
+    color: var(--gray-color);
     font-size: 20px;
   }
   .nav button:hover {
@@ -136,8 +136,8 @@
     width: 90%;
     font-size: 22px;
     padding: 15px;
-    color: gray;
-    border-bottom: 1px solid rgb(159, 156, 156);
+    color: var(--gray-color);
+    border-bottom: 1px solid var(--lightgray-color);
   }
   .nav a:hover {
     text-decoration: none;
@@ -146,7 +146,7 @@
   .navBtn {
     display: block;
     font-size: 30px;
-    color: gray;
+    color: var(--gray-color);
     background-color: transparent;
     cursor: pointer;
   }

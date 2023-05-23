@@ -12,6 +12,7 @@ export default function ProductsPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const location = useLocation();
+  
   useEffect(() => {
     dispatch(removeFilterProducts());
   }, []);

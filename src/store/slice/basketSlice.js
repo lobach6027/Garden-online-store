@@ -7,10 +7,10 @@ export const basketSice = createSlice({
     list: JSON.parse(localStorage.getItem('basket')) || [],
   },
   reducers: {
-    addToBasket: (state, action) => {
-      const product = state.list.find((item) => item.id === action.payload);
+    addToBasket: (state, {payload}) => {
+      const product = state.list.find((item) => item.id === payload);
       if (product === undefined) {
-        state.list = [...state.list, { id: action.payload, count: 1 }];
+        state.list = [...state.list, { id: payload, count: 1 }];
         writeToLocalStorage(state.list);
       } else {
         product.count++;
@@ -18,18 +18,18 @@ export const basketSice = createSlice({
         writeToLocalStorage(state.list);
       }
     },
-    deleteBasketItem: (state, action) => {
-      state.list = state.list.filter((item) => item.id !== action.payload);
+    deleteBasketItem: (state, {payload}) => {
+      state.list = state.list.filter((item) => item.id !== payload);
       writeToLocalStorage(state.list);
     },
-    incrementBasket: (state, action) => {
-      const product = state.list.find((item) => item.id === action.payload);
+    incrementBasket: (state, {payload}) => {
+      const product = state.list.find((item) => item.id === payload);
       product.count++;
       state.list = [...state.list];
       writeToLocalStorage(state.list);
     },
-    decrementBasket: (state, action) => {
-      const product = state.list.find((item) => item.id === action.payload);
+    decrementBasket: (state, {payload}) => {
+      const product = state.list.find((item) => item.id === payload);
       product.count--;
       if (product.count === 0) {
         state.list = state.list.filter((item) => item !== product);
