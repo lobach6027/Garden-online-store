@@ -38,12 +38,17 @@
   transform: scale(1.05);
   transition-duration: 0.5s;
 }
-@media (max-width: 820px) {
+@media (max-width: 920px) {
   .empty_basket_container {
     width: 90%;
+    padding: 0;
   }
   .empty_basket_container p {
     font-size: 20px;
     font-family: var(--font-fam);
+  }
+  .empty_basket_container img {
+    width: 40%;
+    height: 40%;
   }
 }

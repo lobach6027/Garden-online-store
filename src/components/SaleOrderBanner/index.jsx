@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import s from "./style.module.css";
+import { toast } from "react-toastify";
 
 export default function SaleOrderBanner() {
 const [phone, setPhone] = useState('');
 const writeToLocalStorage = (data) =>localStorage.setItem('userPhone',JSON.stringify(data))
-  const onSubmitAction = (e) =>{
+const onSubmitAction = (e) =>{
     e.preventDefault();
     const {usersData} = e.target
     setPhone(usersData.value)
@@ -14,8 +15,7 @@ const writeToLocalStorage = (data) =>localStorage.setItem('userPhone',JSON.strin
   }
   
 console.log(JSON.parse(localStorage.getItem('userPhone')))
-
-  const asyncSending = async ( userData) => {
+const asyncSending = async ( userData) => {
     try {
         const response = await fetch('http://localhost:3333/sale/send', {
         method: 'POST',
@@ -24,10 +24,27 @@ console.log(JSON.parse(localStorage.getItem('userPhone')))
          const data = await response.json();
          
          if(data.status ==='OK'){
-          console.log(data)
+          toast.success('The discount coupon has been sent, please wait for a message within 3 minutes.', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });  
           
          }
        } catch(error) {
+        toast.error('We can not process your request. Please try again.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
           console.log(error)
          } 
     }
@@ -43,10 +60,9 @@ console.log(JSON.parse(localStorage.getItem('userPhone')))
       ):(<div className={s.order_block}>
         <div>
           <h2>5% off on the first order</h2>
-          
         </div>
         <form onSubmit={onSubmitAction} className={s.discount_form}>
-          <input type="tel" placeholder="+49" name='usersData'/>
+          <input type="tel" pattern="\+?[0-9\s\-\(\)]+" minLength={10} maxLength={12} placeholder="+49" name='usersData' required/>
           <input type="submit" value="Get a discount" />
         </form>
       </div>)}

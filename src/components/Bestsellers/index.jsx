@@ -8,9 +8,9 @@ export default function Bestsellers() {
   const products = useSelector((state) => state.products.list.filter(item=>item.discountPercentage));
   return (
     <div className={s.bestsellers_block}>
-      <div className={s.bestsellers_title}>
+      <div className={s.bestsellers_title_block}>
         <h3>BESTSELLERS</h3>
-          <Link to="/products/sale"><button>SALE</button></Link>
+        <Link to="/products/sale"><button>SALE</button></Link>
       </div>
       <div className={s.bestsellers_container}>{
         products

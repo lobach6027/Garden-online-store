@@ -42,9 +42,8 @@
     height: 100vh;
     object-fit: cover;
   }
-
 }
-@media (max-width: 768px){
+@media (max-width: 900px){
   .info {
     width: 50%;
     top: 220px;

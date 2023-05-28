@@ -3,11 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-:root{
-  --main-color:#339933;
+:root {
+  --main-color: #339933;
   --background: #f3f1f1;
   --font-fam: "Montserrat";
   --lightgray-color: rgb(205, 205, 205);
   --gray-color: gray;
-  --gunmetal-color:rgb(61, 61, 61);
+  --gunmetal-color: rgb(61, 61, 61);
 }

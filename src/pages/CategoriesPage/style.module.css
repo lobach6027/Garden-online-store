@@ -3,11 +3,11 @@
   margin-top: 100px;
   padding: 20px;
 }
-.wrapper h2 {
+.categories_wrapper h2 {
   font-family: var(--font-fam);
-  font-weight: 700;
-  font-size: 40px;
-  padding: 20px;
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
 }
 .categories_container {
   margin: 40px auto;
@@ -16,11 +16,11 @@
   grid-auto-rows: 350px;
   gap: 55px 30px;
 }
-@media (max-width: 768px){
-  .categories_container{
+@media (max-width: 768px) {
+  .categories_container {
     grid-auto-rows: 160px;
     margin: 20px auto;
-    gap:20px;
-    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr))
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }

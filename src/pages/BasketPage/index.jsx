@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import BasketItem from "../../components/BasketItem";
@@ -15,6 +15,11 @@ export default function BasketPage() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
   const basket = useSelector((state) => state.basket.list);
+  
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
+  
   const data = basket.map((item) => {
     const product = products.find((elem) => +elem.id === +item.id);
     return { ...item, ...product };
@@ -22,7 +27,7 @@ export default function BasketPage() {
   return (
     <>
       {basket.length ? (
-        <div className={s.wrapper}>
+        <div className={s.wrapper_basket}>
           <div className={s.basket_title}>
             <h2>Shopping cart</h2>
             <div className={s.link_to_store}>
@@ -31,7 +36,6 @@ export default function BasketPage() {
               </Link>
             </div>
           </div>
-
           <div className={s.order_list}>
             <div className={s.order}>
               {data.map((item) => (
@@ -39,8 +43,8 @@ export default function BasketPage() {
               ))}
             </div>
             <div className={s.calculation}>
-            <OrderCalculation />
-          </div>
+              <OrderCalculation />
+            </div>
           </div>
           <ScrollToTop/>
           <div className={s.clear_basket_block} ><button className={s.clear_basket_btn} onClick={() => {dispatch(clearBasket())}}>Empty shopping cart <FontAwesomeIcon icon={faTrash} /></button></div>

@@ -16,7 +16,6 @@ export default function OrderCalculation() {
     return { ...item, ...product}
   });
   
-  
 const totalPrice = data.reduce((prev,{count,finalPrice})=>prev+count*finalPrice,0) || 0
 const totalCount = data.reduce((prev,{count})=>prev+count,0)|| 0
 const priceWithoutDiscont = data.reduce((prev,{count,price})=>prev+count*price,0)|| 0
@@ -65,56 +64,55 @@ const asyncOrderSending = async ( phoneNumber, data) => {
   }
 
 return (
-    <div>
-      {basket.length ? (
-        <div className={s.wrapper}>
-          <h4>Your order</h4>
-          <div className={s.details}>
-            <div className={s.order_detail}>
-              <span>Total number of items</span>
-              <span> {totalCount} </span>
-            </div>
-            <div className={s.order_detail}>
-              <span>Order price without discount</span>
-              <span>${priceWithoutDiscont.toFixed(2)}</span>
-            </div>
-            <div className={s.order_detail}>
-              <span>Sales Tax</span>
-              <span>${(priceWithoutDiscont-totalPrice).toFixed(2)}</span>
-            </div>
-            <div className={s.order_detail}>
-              <span>Subtotal</span>
-              <span> ${totalPrice.toFixed(2)}</span>
-            </div>
-            <div className={s.order_detail}>
-              <span >Shipping (Courier Delivery)</span>
-              <span>${totalPrice>60? 0 : 9.99}</span>
-            </div>
-            <form className={s.discount_form}>
-              <input type="text" placeholder="Discount code"/>
-              <button className={s.apply_discount_btn}>Apply</button>
-            </form>
-          </div>
-          <div className={s.total_amount}>
-            <h4>Total amount</h4>
-            <h4>${totalPrice>60? totalPrice.toFixed(2):(totalPrice+9.99).toFixed(2)}</h4>
-          </div>
-          <form onSubmit={onSubmitAction} className={s.order_confirm}>
-            <label>Please enter your contact details:</label>
-            <input type="tel" pattern="\+?[0-9\s\-\(\)]+" minLength={10} maxLength={12} placeholder="Phone number ..." name='usersData' required />
-            <input type="text" name="firstname"placeholder="Full name ..." required/>
-            <input type="text"  name="address" placeholder="Address ..." required/>
-            <div className={s.city_info}>
+  <div>
+    {basket.length ? (
+      <div className={s.wrapper}>
+        <h4>Your order</h4>
+        <div className={s.details}>
+        <div className={s.order_detail}>
+          <span>Total number of items</span>
+          <span> {totalCount} </span>
+        </div>
+        <div className={s.order_detail}>
+          <span>Order price without discount</span>
+          <span>${priceWithoutDiscont.toFixed(2)}</span>
+        </div>
+        <div className={s.order_detail}>
+          <span>Sales Tax</span>
+          <span>${(priceWithoutDiscont-totalPrice).toFixed(2)}</span>
+        </div>
+        <div className={s.order_detail}>
+          <span>Subtotal</span>
+          <span> ${totalPrice.toFixed(2)}</span>
+        </div>
+        <div className={s.order_detail}>
+          <span >Shipping (Courier Delivery)</span>
+          <span>${totalPrice>60? 0 : 9.99}</span>
+        </div>
+        <form className={s.discount_form}>
+          <input type="text" placeholder="Discount code"/>
+          <button className={s.apply_discount_btn}>Apply</button>
+        </form>
+        </div>
+        <div className={s.total_amount}>
+          <h4>Total amount</h4>
+          <h4>${totalPrice>60? totalPrice.toFixed(2):(totalPrice+9.99).toFixed(2)}</h4>
+        </div>
+        <form onSubmit={onSubmitAction} className={s.order_confirm}>
+          <label>Please enter your contact details:</label>
+          <input type="tel" pattern="\+?[0-9\s\-\(\)]+" minLength={10} maxLength={12} placeholder="Phone number ..." name='usersData' required />
+          <input type="text" name="firstname"placeholder="Full name ..." required/>
+          <input type="text"  name="address" placeholder="Address ..." required/>
+          <div className={s.city_info}>
             <input type="text" name="city" placeholder="City ..." required/>
             <input type="num" minLength={5} maxLength={6} name="zip" placeholder="Zip code ..." required></input>
-            </div>
-            <input  type="submit" value="Order" />
-          </form>
-          
-        </div>
+          </div>
+          <input  type="submit" value="Order" />
+        </form>
+      </div>
       ) : (
         ""
       )}
-    </div>
+  </div>
   );
 }

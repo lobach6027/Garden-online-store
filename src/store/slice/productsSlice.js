@@ -9,7 +9,8 @@ export const fetchProducts = createAsyncThunk(
       ...item,
       finalPrice: item.discont_price || item.price,
       discountPercentage:item.discont_price?(Math.round((1-item.discont_price/item.price)*100)):0,
-      show:true,
+      showSearchWorld:true,
+      showDiscount:true,
       showPriceFilter:true
     }))
     return totalData
@@ -20,8 +21,8 @@ export const productsSlice = createSlice({
   initialState: { list: [] },
   reducers: {
     searchProduct:(state,{payload}) => {
-        state.list = state.list
-        .map(item=>({...item, show:item.title.toLowerCase().includes(payload.toLowerCase())}))
+      state.list = state.list
+      .map(item=>({...item, showSearchWorld:item.title.toLowerCase().includes(payload.toLowerCase())}))
     },
     filterByPrice: (state, {payload}) =>{
       state.list = state.list.map((item)=>{
@@ -33,7 +34,7 @@ export const productsSlice = createSlice({
       })
     },
     removeFilterProducts:(state) => {
-      state.list = state.list.map(item=>({...item, show:true,showPriceFilter:true}))
+      state.list = state.list.map(item=>({...item, show:true,showPriceFilter:true, showDiscount:true,showSearchWorld:true}))
     },
     sortProducts:(state, {payload}) => {
       if(payload ==='priceUp'){
@@ -50,12 +51,12 @@ export const productsSlice = createSlice({
       if(payload){ 
         state.list = state.list.map(item=> {
         if(!item.discountPercentage){
-          return {...item, show:false}
+          return {...item, showDiscount:false}
         }else{
           return {...item}
         }})
       }else{
-      state.list = state.list.map(elem=>({...elem,show:true}))
+      state.list = state.list.map(elem=>({...elem,showDiscount:true}))
       }
     }
   },

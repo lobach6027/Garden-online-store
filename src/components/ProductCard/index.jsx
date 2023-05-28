@@ -7,10 +7,8 @@ import { toast } from "react-toastify";
 
 export default function ProductCard({id, title,price,image,discont_price,finalPrice,discountPercentage
 }) {
-
 const link = `/product/${id}`;
 const dispatch = useDispatch();
-console.log(id)
 const addToCartAction = (id)=>{
   dispatch(addToBasket(+id))
   toast.success('Successfully added to cart', {
@@ -29,7 +27,7 @@ const addToCartAction = (id)=>{
       <button className={s.basket_btn} onClick={()=>addToCartAction(id)}>Add to Cart</button>
       <NavLink className={s.content} to={link}>
         <div className={s.img_block}>
-        <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />
+          <img className={s.image}  src={`http://localhost:3333${image}`}  alt={title}  />
         </div>
         <div className={s.card_info_block} >
           <p className={s.product_title}>{title}</p>

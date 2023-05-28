@@ -41,12 +41,16 @@
   gap: 30px;
 }
 @media (max-width: 768px) {
+
+  .wrapper_favour_categories {
+    padding: 15px 20px;
+  }
   .title_short_catalog {
     width: 100%;
     justify-content: space-between;
   }
   .title_short_catalog h3{
-    font-size: 20px;
+    font-size: 18px;
   }
   .categories_short_container{
     margin: 20px auto;

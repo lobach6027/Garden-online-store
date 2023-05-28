@@ -2,19 +2,19 @@ import React from "react";
 import s from "./style.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faLocation, faClock} from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export default function Footer() {
   return (
     <div className={s.wrapper_footer}>
       <div className={s.contacts}>
         <div className={s.contacts_block}>
-            <h3>Contacts</h3>
-            <a className={s.tel} href="tel:+499999999999"> <FontAwesomeIcon icon={faPhone}/> +49 999 999 99 99</a>
+          <h3>Contacts</h3>
+          <a className={s.tel} href="tel:+499999999999"> <FontAwesomeIcon icon={faPhone}/> +49 999 999 99 99</a>
         </div>
         <div  className={s.contacts_block}>
-            <h3>Address</h3>
-            <a href="https://www.google.com/search?q=telranDE"><FontAwesomeIcon icon={faLocation}/> Linkstraße 2/8 Etage, 10785 Berlin, Deutschland</a>
+          <h3>Address</h3>
+          <a href="https://www.google.com/search?q=telranDE"><FontAwesomeIcon icon={faLocation}/> Linkstraße 2/8 Etage, 10785 Berlin, Deutschland</a>
         </div>
         <div  className={s.contacts_block}>
           <h3>Shop hours</h3>

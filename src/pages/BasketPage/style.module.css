@@ -1,4 +1,4 @@
-.wrapper {
+.wrapper_basket {
   height: 100%;
   margin-top: 120px;
   padding: 0 20px;
@@ -62,7 +62,6 @@
 .calculation {
   width: 30%;
 }
-
 .clear_basket_block {
   padding: 10px;
   width: 100%;
@@ -84,7 +83,7 @@
   transition: 1s;
 }
 @media (max-width: 1220px) {
-  .wrapper {
+  .wrapper_basket {
     padding: 0 5px;
   }
   .basket_title {
@@ -108,5 +107,8 @@
   }
   .clear_basket_block {
     justify-content: center;
+  }
+  .clear_basket_btn {
+    color: var(--gunmetal-color);
   }
 }

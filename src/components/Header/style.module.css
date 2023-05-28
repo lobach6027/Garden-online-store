@@ -31,7 +31,7 @@
   color: var(--main-color);
   font-family: var(--font-fam);
 }
-.catalog_btn button{
+.catalog_btn button {
   background: transparent;
   border: 2px solid var(--main-color);
   min-width: 170px;
@@ -100,7 +100,7 @@
     position: absolute;
     right: 0;
     top: 100px;
-    background-color:white;
+    background-color: white;
     transform: translateY(-100%);
     transition: transform, opacity;
     transition-duration: 0.5s;
@@ -159,12 +159,12 @@
     height: 35px;
     font-size: 16px;
   }
-  .catalog_container{
-  gap: 30px; 
+  .catalog_container {
+    gap: 30px;
   }
 }
-@media (max-width: 390px){
-  .catalog_btn{
+@media (max-width: 390px) {
+  .catalog_btn {
     display: none;
     pointer-events: auto;
   }

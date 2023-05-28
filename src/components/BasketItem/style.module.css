@@ -8,7 +8,6 @@
   border-bottom: 1px solid var(--lightgray-color);
   position: relative;
 }
-
 .basket_item_container a {
   height: 100%;
   width: 60%;
@@ -18,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.img_block {
+.link_block {
   height: 80%;
   overflow: hidden;
   position: relative;
@@ -35,7 +34,7 @@
   font-size: 16px;
   z-index: 20;
 }
-.img_block img {
+.link_block img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -44,11 +43,10 @@
   font-size: 18px;
   font-family: var(--font-fam);
 }
-
 .product_info {
   width: 65%;
 }
-.hide {
+.hide_discount {
   display: none;
 }
 .count_container {
@@ -66,7 +64,6 @@
   background: none;
   cursor: pointer;
 }
-
 .count_container div {
   padding: 10px 10px;
   border: none;
@@ -74,7 +71,6 @@
   background: none;
   box-sizing: border-box;
 }
-
 .price_block {
   width: 15%;
   height: 100%;
@@ -92,14 +88,13 @@
   font-size: 16px;
   text-decoration: line-through;
 }
-
 .delete_btn {
   border: none;
   background: none;
   outline: none;
   font-size: 22px;
   cursor: pointer;
-  color: var( --gray-color);
+  color: var(--gray-color);
 }
 .delete_btn:hover {
   color: black;
@@ -114,7 +109,8 @@
     font-size: 14px;
   }
   .basket_item_container a p {
-    font-size: 14px;
+    font-size: 13px;
+    padding: 6px;
   }
   .count_container {
     width: 16%;
@@ -123,15 +119,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     font-size: 14px;
   }
-  .count_container div{
+  .count_container div {
     padding: 7px 7px;
     font-size: 14px;
   }
-  .price_block{
+  .price_block {
     padding: 5px;
   }
   .new_price {
@@ -140,7 +136,7 @@
   .old_price {
     display: none;
   }
-  .delete_btn{
-    font-size: 18px; 
+  .delete_btn {
+    font-size: 18px;
   }
 }

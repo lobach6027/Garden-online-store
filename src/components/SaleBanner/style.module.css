@@ -12,7 +12,6 @@
       rgb(240, 240, 251) calc(50% + 1140px)
     ),
     url("../../../public/images/sale-img.png") no-repeat top right;
-
   display: flex;
   flex-direction: column;
   align-items: self-start;
@@ -36,7 +35,6 @@
   font-size: 16px;
   font-family: var(--font-fam);
 }
-
 .sale_banner button {
   border: none;
   font-family: var(--font-fam);

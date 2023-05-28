@@ -23,9 +23,9 @@ export default function Guarantee() {
       <h3>WHY SHOP WITH US ?</h3>
       <div className={s.container_guarantee}>
         {advanteges.map((item)=><div className={s.card_guarantee} key={item.id}>
-            <img src={item.imgage} alt={item.text} />
-            <p>{item.text}</p>
-            </div>)}
+          <img src={item.imgage} alt={item.text} />
+          <p>{item.text}</p>
+        </div>)}
       </div>
     </div>
   );

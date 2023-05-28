@@ -11,8 +11,7 @@ import SingleProductPage from "../../pages/SingleProductPage";
 import BasketPage from "../../pages/BasketPage";
 import { fetchProducts } from "../../store/slice/productsSlice";
 import { fetchCategories } from "../../store/slice/categoriesSlice";
-import './style.css'
-
+import "./style.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,18 +23,16 @@ function App() {
   return (
     <div>
       <Header />
-      
       <Routes>
         <Route element={<CategoriesPage />} path="/categories/all" />
         <Route element={<ProductsPage />} path="/products/all" />
         <Route element={<ProductsPage />} path="/products/sale" />
         <Route element={<MainPage />} path="/" />
         <Route element={<NotFoundPage />} path="/*" />
-        <Route element={<ProductsPage/>} path="/categories/:id"/>
-        <Route element={<SingleProductPage/>} path="/product/:id" />
-        <Route element={<BasketPage/>} path="/basket" />
+        <Route element={<ProductsPage />} path="/categories/:id" />
+        <Route element={<SingleProductPage />} path="/product/:id" />
+        <Route element={<BasketPage />} path="/basket" />
       </Routes>
-      
       <Footer />
     </div>
   );
