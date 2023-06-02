@@ -1,0 +1,32 @@
+.breadcrumb {
+  padding: 15px 20px;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.breadcrumb a {
+  font-size: 15px;
+  color: var(--gray-color);
+  font-family: var(--font-fam);
+}
+.breadcrumb a:hover {
+  color: black;
+}
+.breadcrumb a:last-child {
+  text-decoration: none;
+  color: var(--main-color);
+}
+@media (max-width: 820px) {
+  .breadcrumb {
+    padding: 10x;
+    justify-content: center;
+  }
+}
+@media (max-width: 520px) {
+  .breadcrumb a:last-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

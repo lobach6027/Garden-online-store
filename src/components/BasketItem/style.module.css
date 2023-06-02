@@ -10,7 +10,7 @@
 }
 .basket_item_container a {
   height: 100%;
-  width: 60%;
+  width: 40%;
   text-decoration: none;
   color: black;
   display: flex;
@@ -24,6 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.product_info {
+  width: 65%;
 }
 .discount_label {
   background-color: pink;
@@ -43,9 +46,7 @@
   font-size: 18px;
   font-family: var(--font-fam);
 }
-.product_info {
-  width: 65%;
-}
+
 .hide_discount {
   display: none;
 }
@@ -72,7 +73,7 @@
   box-sizing: border-box;
 }
 .price_block {
-  width: 15%;
+  width: 30%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -81,12 +82,20 @@
 .new_price {
   font-weight: 400;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
 }
 .old_price {
   color: var(--gray-color);
   font-weight: 400;
   font-size: 16px;
   text-decoration: line-through;
+}
+.price_descr {
+  font-size: 12px;
+  color: var(--gray-color);
 }
 .delete_btn {
   border: none;
@@ -105,22 +114,26 @@
     height: 120px;
     padding: 5px 0 5px 10px;
   }
+  .basket_item_container a {
+    width: 55%;
+  }
   .discount_label {
     font-size: 14px;
   }
   .basket_item_container a p {
-    font-size: 13px;
-    padding: 6px;
+    font-size: 12px;
+    padding: 10px;
+    width: 50%;
   }
   .count_container {
-    width: 16%;
+    width: 21%;
   }
   .count_btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     font-size: 14px;
   }
   .count_container div {
@@ -129,9 +142,17 @@
   }
   .price_block {
     padding: 5px;
+    justify-content: center;
   }
   .new_price {
     font-size: 15px;
+    margin-top: 0;
+  }
+  .new_price p {
+    display: none;
+  }
+  .hide_price {
+    display: none;
   }
   .old_price {
     display: none;

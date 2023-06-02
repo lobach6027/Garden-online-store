@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .order_block {
   margin: 0 auto;

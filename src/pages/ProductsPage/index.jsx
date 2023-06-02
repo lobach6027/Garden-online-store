@@ -6,6 +6,7 @@ import s from "./style.module.css";
 import FilterSortBar from "../../components/FilterSortBar";
 import { removeFilterProducts } from "../../store/slice/productsSlice";
 import ScrollToTop from "../../components/ScrollToTop";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 export default function ProductsPage() {
   const { id } = useParams();
@@ -42,6 +43,7 @@ export default function ProductsPage() {
       {location.pathname === "/products/sale"?
        (<div className={s.wrapper}>
           <h2 className={s.products_title}>Products with sale</h2>
+          <Breadcrumbs title = "Sale"/>
           <FilterSortBar />
           <div className={s.container}>
             {(readyToShow.length)?(products
@@ -58,6 +60,7 @@ export default function ProductsPage() {
           <h2 className={s.products_title}>
             {category === undefined ? "All Products" : category.title}
           </h2>
+          <Breadcrumbs title = {category === undefined ? "All Products" : category.title}/>
           <FilterSortBar/>
           <div className={s.container}>
             {(readyToShow.length)?(products

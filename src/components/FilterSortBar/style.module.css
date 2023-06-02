@@ -4,7 +4,7 @@
   height: 100%;
   position: relative;
   border-radius: 15px;
-  background: rgb(244, 244, 254);
+  background-color: rgb(247, 247, 247);
   -webkit-box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);
@@ -23,7 +23,9 @@
 }
 .checkbox {
   display: flex;
+  align-items: center;
   gap: 15px;
+  justify-content: space-between;
 }
 .sort p,
 span {
@@ -43,11 +45,23 @@ span {
 .input_price {
   width: 100px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   outline: none;
   border: 1px solid var(--gray-color);
   font-size: 14px;
   font-family: var(--font-fam);
+}
+.price_input_container {
+  display: flex;
+}
+.price_input_container button {
+  border-radius: 0 5px 5px 0;
+  padding: 3px;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid var(--gray-color);
+  border-left: none;
+  cursor: pointer;
 }
 .search_container {
   outline: none;
@@ -69,16 +83,13 @@ select {
   font-family: var(--font-fam);
   text-align: center;
   width: 200px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   outline: none;
   border: 1px solid var(--gray-color);
   font-size: 14px;
+  cursor: pointer;
 }
-input[type="checkbox"] {
-  transform: scale(2.2);
-}
-
 .apply_filter_btn {
   font-family: var(--font-fam);
   font-size: 16px;
@@ -119,7 +130,50 @@ input[type="checkbox"] {
   top: 10px;
   right: 10px;
 }
-@media (max-width: 920px) {
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.checkboxInput {
+  display: none;
+}
+.checkboxLabel {
+  width: 150px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  cursor: pointer;
+}
+.checkboxLabel:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 27px;
+  height: 27px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.checkboxLabel:after {
+  content: "\2714";
+  position: absolute;
+  font-size: 27px;
+  left: 4px;
+  color: var(--main-color);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.checkboxInput:checked + .checkboxLabel:after {
+  opacity: 1;
+}
+.checkboxLabel:focus-within:before {
+  border-color: #555;
+}
+@media (max-width: 1100px) {
   .filter_bar {
     position: absolute;
     width: 100%;
@@ -139,7 +193,7 @@ input[type="checkbox"] {
     transform: rotateY(45deg);
     transition: transform, opacity;
     transition-duration: 0.5s;
-    background: rgb(244, 244, 254);
+    background-color: rgb(245, 244, 244);
     -webkit-box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 4px 27px 0px rgba(34, 60, 80, 0.2);

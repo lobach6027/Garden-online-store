@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import s from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import BasketItem from "../../components/BasketItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import OrderCalculation from "../../components/OrderCalculation";
@@ -11,7 +11,7 @@ import { clearBasket } from "../../store/slice/basketSlice";
 import ScrollToTop from "../../components/ScrollToTop";
 
 export default function BasketPage() {
-
+  const replace = useNavigate()
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
   const basket = useSelector((state) => state.basket.list);
@@ -24,6 +24,17 @@ export default function BasketPage() {
     const product = products.find((elem) => +elem.id === +item.id);
     return { ...item, ...product };
   });
+
+ 
+ 
+  const clearBasketContainer = () => {
+    const result = window.confirm("Are you sure you want to remove all items from your cart?");
+    if (result) {
+      dispatch(clearBasket());
+    } else {
+      replace('/basket');
+    }
+  };
   return (
     <>
       {basket.length ? (
@@ -47,7 +58,7 @@ export default function BasketPage() {
             </div>
           </div>
           <ScrollToTop/>
-          <div className={s.clear_basket_block} ><button className={s.clear_basket_btn} onClick={() => {dispatch(clearBasket())}}>Empty shopping cart <FontAwesomeIcon icon={faTrash} /></button></div>
+          <div className={s.clear_basket_block} ><button className={s.clear_basket_btn} onClick={()=>clearBasketContainer()}>Empty shopping cart <FontAwesomeIcon icon={faTrash} /></button></div>
         </div>
       ) : (
         <EmptyBasketBlockCalculation />

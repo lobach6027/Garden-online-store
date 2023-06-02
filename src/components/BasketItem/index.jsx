@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function BasketItem({id, image, price, discont_price, count, title,finalPrice,discountPercentage }) {
   const dispatch = useDispatch();
-
+  const totalPerProduct = count*finalPrice;
   return (
     <div className={s.basket_item_container}>
       <Link to = {`/product/${id}`}>
@@ -24,8 +24,9 @@ export default function BasketItem({id, image, price, discont_price, count, titl
         <button className={s.count_btn} onClick={() => dispatch(incrementBasket(id))}>+</button>
       </div>
       <div className={s.price_block}>
-        <span className={s.new_price}>${finalPrice?`${finalPrice.toFixed(2)}`:''}</span>
+        <span className={[s.new_price, s.hide_price].join(' ')}>${finalPrice?`${finalPrice.toFixed(2)}`:''}<p className={s.price_descr}>(per item)</p></span>
         <span className={s.old_price}>{discont_price?`$${price.toFixed(2)}`:''}</span>
+        <span className={s.new_price}>{totalPerProduct?`$${totalPerProduct.toFixed(2)}`:''}<p className={s.price_descr}>(total per all items)</p></span>
       </div>
       <button className={s.delete_btn} onClick={() => dispatch(deleteBasketItem(id))}><FontAwesomeIcon icon={faTrashAlt}/></button>
     </div>

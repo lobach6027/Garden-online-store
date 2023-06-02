@@ -32,6 +32,7 @@
   font-size: 18px;
   font-weight: 500;
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 .link_to_store:hover {
@@ -66,20 +67,20 @@
   padding: 10px;
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-start;
 }
 .clear_basket_btn {
   cursor: pointer;
   padding: 7px;
   font-family: var(--font-fam);
-  border: 1px solid var(--lightgray-color);
-  background: transparent;
+  border: 1px solid var(--gray-color);
+  background-color: rgba(122, 186, 127, 0.4);
   font-size: 16px;
-  color: var(--lightgray-color);
+  color: var(--gunmetal-color);
 }
 .clear_basket_btn:hover {
   color: black;
-  background-color: rgb(233, 233, 233);
+  background-color: rgba(122, 186, 127, 0.8);
   transition: 1s;
 }
 @media (max-width: 1220px) {

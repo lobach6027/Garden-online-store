@@ -20,30 +20,13 @@
   font-size: 30px;
   color: var(--gray-color);
 }
-.bestsellers_title_block a button {
-  background: transparent;
-  border: 2px solid var(--main-color);
-  min-width: 170px;
-  height: 40px;
-  box-sizing: border-box;
-  cursor: pointer;
-  color: var(--main-color);
-  font-family: var(--font-fam);
-  font-weight: 500;
-  font-size: 18px;
-}
-.bestsellers_title_block a button:hover {
-  cursor: pointer;
-  transition: all 0.3s ease-in;
-  background: var(--main-color);
-  color: white;
-}
 @media (max-width: 820px) {
   .bestsellers_title_block {
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 20px;
   }
   .bestsellers_title_block h3 {
-    font-size: 20px;
+    font-size: 16px;
   }
 }

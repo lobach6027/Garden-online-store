@@ -76,5 +76,5 @@ export const productsSlice = createSlice({
    }
 });
 
-export const {searchProduct,removeFilterProducts,sortProducts,filterDiscountProducts,filterByPrice} = productsSlice.actions;
+export const {searchProduct, removeFilterProducts,sortProducts,filterDiscountProducts,filterByPrice} = productsSlice.actions;
 export default productsSlice.reducer;

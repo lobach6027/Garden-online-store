@@ -8,6 +8,7 @@
   border: none;
   z-index: 150;
   background-color: rgba(122, 186, 127, 0.5);
+  cursor: pointer;
 }
 .back_to_top_btn:hover {
   background-color: rgba(122, 186, 127, 0.7);
